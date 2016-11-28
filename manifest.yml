@@ -1,5 +1,5 @@
 applications:
-- path: target/TomcatHelloWorldApp.war
+- path: target/SkipAndBuyService.war
   memory: 256M
   instances: 1
   domain: mybluemix.net
