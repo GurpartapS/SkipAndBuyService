@@ -68,5 +68,21 @@
   		<version>2.8.5</version>
   		
   	</dependency>
+  	<dependency>
+  		<groupId>org.hibernate</groupId>
+  		<artifactId>hibernate-core</artifactId>
+  		<version>5.2.2.Final</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.hibernate.common</groupId>
+  		<artifactId>hibernate-commons-annotations</artifactId>
+  		<version>5.0.1.Final</version>
+  	</dependency>
+  	<!-- https://mvnrepository.com/artifact/net.sourceforge.jtds/jtds -->
+	<dependency>
+	    <groupId>net.sourceforge.jtds</groupId>
+	    <artifactId>jtds</artifactId>
+	    <version>1.3.1</version>
+	</dependency>
   </dependencies>
 </project>
