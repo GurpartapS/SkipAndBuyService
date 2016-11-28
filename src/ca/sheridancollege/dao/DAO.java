@@ -1,64 +1,44 @@
 package ca.sheridancollege.dao;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
-import java.util.List;
 
-import java.util.List;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
-
-import ca.sheridancollege.beans.Product;
+import ca.sheridancollege.beans.Student;
 
 public class DAO {
+	private ArrayList<Student> studentList = new ArrayList<Student>();
 
-	SessionFactory sessionFactory = new Configuration()
-			.configure("ca/sheridancollege/config/hibernate.cfg.xml")
-			.buildSessionFactory();
+	public ArrayList<Student> studentList() {
+		// TODO Auto-generated method stub
+		return studentList;
+	}
 
-	public ArrayList<Product> initializeSubjects() {
-		Session session = sessionFactory.openSession();
-		session.beginTransaction();
-		
-		Query query= session.createQuery("from Product");
-		
-		ArrayList<Product> products = (ArrayList<Product>) query.getResultList();
-		
-		if(products.size()==0){
-									
-			products.add(new Product("991338337","Excel",2.0,"True Happiness right out of the box. Enjoy the rich, flaky, melt in your mouth taste of RITZ in a variety of delicious flavours.",500,1,"200g","Excel","453434234","30",""));
-			
-			session.save(products.get(0));
-			
-			
-			session.getTransaction().commit();
-			session.close();
-			
-			return products;
-		}
-		else{
-			return products;
-		}
+	public synchronized void putStudent(int id, String name) {
+		// TODO Auto-generated method stub
+		studentList.add(new Student(id, name));
 	}
-	
-	public ArrayList<Product> getProduct(String productId) {
-		Session session = sessionFactory.openSession();
-		session.beginTransaction();
-		
-		Query query= session.createQuery("from Product where productId=:productId");
-		query.setParameter("productId", productId);
-		
-		ArrayList<Product> products = (ArrayList<Product>) query.getResultList();
-		
-		return products;
-		
+	public synchronized void postStudent(int id, String name) {
+		// TODO Auto-generated method stub
+		studentList.add(new Student(id, name));
 	}
+
+	public synchronized void deleteStudent(int id) {
+
+		for(Student s : studentList){
+			if(s.getId()==id){
+				
+				studentList.remove(s);
+			
+			}
+		}
+		/*Iterator<Student> itr = studentList.iterator();
+		while (itr.hasNext()) {
+		    Student element = itr.next();
+		   if(element.getId()==id){
+			     studentList.remove(itr);
+		   }*/
+		}
+		
 		
 	}
 

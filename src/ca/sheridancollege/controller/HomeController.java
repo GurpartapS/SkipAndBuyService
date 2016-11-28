@@ -1,7 +1,6 @@
 package ca.sheridancollege.controller;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,29 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import ca.sheridancollege.beans.Product;
+import ca.sheridancollege.beans.Student;
 import ca.sheridancollege.dao.DAO;
 
 @RestController
 public class HomeController {
 	private DAO dao = new DAO();
 
-	@RequestMapping("/")
-	public ArrayList<Product> home(Model model) {
-		ArrayList<Product> product = dao.initializeSubjects();
-		
-		return product;
-	}
-	
-	@RequestMapping(value = "/productInfo/{productId}", method = RequestMethod.GET)
-	public ArrayList<Product> putStudentListItem(@PathVariable String productId) {
-		ArrayList<Product> product=dao.getProduct(productId);
-		
-		return product;
-		
-	}
-
-	/*
 	@RequestMapping("/")
 	public String Home(Model model) {
 		return "home";
@@ -56,6 +39,4 @@ public class HomeController {
 	public void deleteStudent(@PathVariable int id) {
 		dao.deleteStudent(id);
 	}
-	
-	*/
 }
