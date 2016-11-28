@@ -1,5 +1,5 @@
 applications:
-- path: target/SkipAndBuyService.war
+- path: SkipAndBuyService.war
   memory: 256M
   instances: 1
   domain: mybluemix.net
